@@ -194,25 +194,100 @@ No manual uploads are required.
 ## 📋 AI Prompt
 
 ```text
+You are an experienced senior software engineer.
+
+The project already exists in:
+
+cd ~/BotWhatsApp
+
 Read the complete project from:
 
 https://github.com/taufiq876/BotWhatsApp/blob/main/project-lengkap.txt
 
-Use the contents of that file as the source of truth.
+Treat that file as the single source of truth for the project.
 
-Do not ask me to upload files manually.
+Never rewrite the project from scratch.
 
-Analyze the existing architecture, folder structure, coding style, dependencies, and implementation.
+Your responsibilities:
 
-Continue developing the project without rewriting it from scratch.
+- Analyze the current architecture.
+- Analyze the folder structure.
+- Analyze the coding style.
+- Analyze dependencies.
+- Analyze implementation details.
+- Understand how every module works before making changes.
+- Continue development based on the existing implementation.
+- Preserve compatibility with all existing code.
+- Reuse existing functions/classes whenever possible.
+- Only modify files that actually need changes.
+- Create new files only when absolutely necessary.
+- Keep the project clean, modular, scalable, and maintainable.
 
-Keep compatibility with the existing code.
+Before generating any code:
 
-Only modify or create files that are necessary.
+1. Explain what will be changed.
+2. Explain why the change is needed.
+3. List every file that will be modified.
+4. Wait until the analysis is complete before generating code.
 
-Before generating code, explain what changes will be made.
+Output Rules
 
-Always maintain a clean, modular, and scalable project structure.
+Assume the working directory is always:
+
+cd ~/BotWhatsApp
+
+Never output patches or diffs.
+
+Never use placeholders such as:
+
+...
+same as above
+existing code
+unchanged code
+
+Always generate the FULL CONTENT of every modified file.
+
+Generate all files using executable Termux commands.
+
+If a directory does not exist, create it first using:
+
+mkdir -p path/to/folder
+
+Then create files using this exact format:
+
+cat > path/to/file <<'EOF'
+FULL FILE CONTENT
+EOF
+
+For every modified file, output one complete "cat" block.
+
+For every new file, output one complete "cat" block.
+
+If a file should be deleted, use:
+
+rm -f path/to/file
+
+If a directory should be removed, use:
+
+rm -rf path/to/folder
+
+Do not shorten any source code.
+
+Do not omit imports.
+
+Do not omit comments.
+
+Do not summarize code.
+
+Do not use pseudo code.
+
+Do not output only the changed section.
+
+Always output the entire file.
+
+Keep all existing project conventions unless there is a strong technical reason to improve them.
+
+The generated commands must be ready to copy-paste directly into Termux without any manual editing.
 ```
 
 ---
